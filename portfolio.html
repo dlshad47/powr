@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referanser | Powr AS</title>
+<meta name="description" content="Se nylige vaktmester-, renholds-, uteområde- og reparasjonsoppdrag utført av Powr AS i Oslo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html#home" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="Powr AS">
+        <defs><clipPath id="brandClip"><rect width="40" height="40" rx="6"/></clipPath></defs>
+        <g clip-path="url(#brandClip)">
+          <rect width="40" height="40" fill="#191c1a"/>
+          <polygon points="40,0 40,40 0,40" fill="#e2551b"/>
+          <line x1="0" y1="0" x2="40" y2="40" stroke="#0c0e0c" stroke-width="1"/>
+        </g>
+        <text x="20" y="29" font-family="Oswald, sans-serif" font-weight="700" font-size="23" fill="#ffffff" text-anchor="middle">P</text>
+      </svg>
+      <span class="brand-text">Powr AS<small>Vaktmestertjenester</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#home">Hjem</a>
+      <a href="index.html#about">Om oss</a>
+      <a href="index.html#portfolio" class="active">Referanser</a>
+      <a href="index.html#services">Tjenester</a>
+      <a href="index.html#reviews">Anmeldelser</a>
+      <a href="index.html#contact">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+4794248000" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        94 24 80 00
+      </a>
+      <a href="contact.html" class="btn btn-primary">Få et tilbud</a>
+    </div>
+    <button class="hamburger" aria-label="Åpne meny" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay"></div>
+<aside class="mobile-tray">
+  <nav class="nav-links">
+    <a href="index.html#home">Hjem</a>
+    <a href="index.html#about">Om oss</a>
+    <a href="index.html#portfolio">Referanser</a>
+    <a href="index.html#services">Tjenester</a>
+    <a href="index.html#reviews">Anmeldelser</a>
+    <a href="index.html#contact">Kontakt</a>
+  </nav>
+  <div class="mobile-tray-footer">
+    <a href="tel:+4794248000" class="mobile-tray-phone">94 24 80 00</a>
+    <a href="contact.html" class="btn btn-primary btn-block">Få et tilbud</a>
+  </div>
+</aside>
+
+<section class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="container page-hero-inner">
+    <div class="breadcrumb reveal"><a href="index.html">Hjem</a><span>/</span><span>Referanser</span></div>
+    <p class="eyebrow reveal">Vårt arbeid</p>
+    <h1 class="reveal reveal-delay-1">Prosjekter vi er stolte av</h1>
+    <p class="reveal reveal-delay-2">Et innblikk i eiendommene vi drifter, rengjør og reparerer i hele Oslo-området. Filtrer etter tjeneste for å utforske.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Alle prosjekter</button>
+      <button class="filter-btn" data-filter="maintenance">Vaktmestertjenester</button>
+      <button class="filter-btn" data-filter="cleaning">Renhold</button>
+      <button class="filter-btn" data-filter="grounds">Snø og uteområder</button>
+      <button class="filter-btn" data-filter="repairs">Reparasjoner</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="p-item reveal" data-category="maintenance">
+        <div class="p-img" style="background-image:url('images/portfolio-1.png'); background-size:cover; background-position:center;"></div>
+        <span class="p-tag">Fremhevet</span>
+        <div class="p-overlay"><span>Vaktmestertjenester</span><h4>Sentrum kontorbygg</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-1" data-category="cleaning">
+        <div class="p-img" style="background-image:url('images/portfolio-2.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Renhold</span><h4>Vårby Borettslag</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-2" data-category="grounds">
+        <div class="p-img" style="background-image:url('images/portfolio-3.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Snø og uteområder</span><h4>Norbygg boliger</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-3" data-category="repairs">
+        <div class="p-img" style="background-image:url('images/portfolio-4.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Reparasjoner</span><h4>Oslo Eiendom Bygg B</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-4" data-category="maintenance">
+        <div class="p-img" style="background-image:url('images/portfolio-5.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Vaktmestertjenester</span><h4>Grünerløkka leiligheter</h4></div>
+      </div>
+      <div class="p-item reveal" data-category="cleaning">
+        <div class="p-img" style="background-image:url('images/portfolio-6.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Renhold</span><h4>Frogner næringspark</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-1" data-category="repairs">
+        <div class="p-img" style="background-image:url('images/portfolio-4.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Reparasjoner</span><h4>Majorstuen boligsameie</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-2" data-category="grounds">
+        <div class="p-img" style="background-image:url('images/portfolio-7.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Snø og uteområder</span><h4>Bjørvika sjøfront</h4></div>
+      </div>
+      <div class="p-item reveal reveal-delay-3" data-category="maintenance">
+        <div class="p-img" style="background-image:url('images/portfolio-1.png'); background-size:cover; background-position:center;"></div>
+        <div class="p-overlay"><span>Vaktmestertjenester</span><h4>Ullevål legesenter</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container final-cta-inner">
+    <h2 class="reveal">Likte du det du så?</h2>
+    <p class="reveal reveal-delay-1">La oss snakke om hvordan en skreddersydd driftsavtale kan se ut for din eiendom.</p>
+    <div class="btn-actions reveal reveal-delay-2">
+      <a href="contact.html" class="btn btn-dark btn-lg">Få et gratis tilbud</a>
+      <a href="services.html" class="btn btn-secondary btn-lg">Se tjenester</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html#home" class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="Powr AS">
+        <defs><clipPath id="brandClip"><rect width="40" height="40" rx="6"/></clipPath></defs>
+        <g clip-path="url(#brandClip)">
+          <rect width="40" height="40" fill="#191c1a"/>
+          <polygon points="40,0 40,40 0,40" fill="#e2551b"/>
+          <line x1="0" y1="0" x2="40" y2="40" stroke="#0c0e0c" stroke-width="1"/>
+        </g>
+        <text x="20" y="29" font-family="Oswald, sans-serif" font-weight="700" font-size="23" fill="#ffffff" text-anchor="middle">P</text>
+      </svg>
+          <span class="brand-text">Powr AS<small>Vaktmestertjenester</small></span>
+        </a>
+        <p>Profesjonell vaktmestertjeneste, renhold og eiendomsdrift i Oslo. Pålitelig, tilgjengelig og døgnåpen.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Snarveier</h4>
+        <ul>
+          <li><a href="index.html#home">Hjem</a></li>
+          <li><a href="index.html#about">Om oss</a></li>
+          <li><a href="services.html">Tjenester</a></li>
+          <li><a href="portfolio.html">Referanser</a></li>
+          <li><a href="reviews.html">Anmeldelser</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tjenester</h4>
+        <ul>
+          <li><a href="services.html">Vaktmestertjenester</a></li>
+          <li><a href="services.html">Renhold og vedlikehold</a></li>
+          <li><a href="services.html">Snø og uteområder</a></li>
+          <li><a href="services.html">Reparasjoner og handyman</a></li>
+          <li><a href="services.html">Døgnvakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 94 24 80 00</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg> post@powr.no</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Stanseveien 16, 0975 Oslo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Døgnåpen, dekker hele Oslo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Powr AS. Alle rettigheter reservert.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy-policy.html">Personvernerklæring</a>
+        <a href="contact.html">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
