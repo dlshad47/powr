@@ -99,13 +99,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- Contact / hero forms ---------- */
+  // Leads are delivered by FormSubmit (https://formsubmit.co) - no account, no
+  // API key. Change the address below and the mail simply goes somewhere else.
+  // The very first submission triggers a one-time confirmation e-mail that must
+  // be clicked before deliveries start.
+  const LEAD_EMAIL = 'dlshad282930@gmail.com';
+
   document.querySelectorAll('form[data-quote-form]').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    const successEl = form.parentElement.querySelector('.form-success');
+    const errorEl = form.querySelector('.form-error');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnLabel = submitBtn ? submitBtn.innerHTML : '';
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const successEl = form.parentElement.querySelector('.form-success');
-      form.style.display = 'none';
-      if (successEl) successEl.classList.add('show');
-      form.reset();
+      if (errorEl) errorEl.classList.remove('show');
+
+      const data = new FormData(form);
+      data.append('_subject', 'Ny tilbudsforespørsel fra powr.no');
+      data.append('_template', 'table');
+      data.append('_captcha', 'false');
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sender ...';
+      }
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        const out = await res.json();
+        if (!res.ok || out.success === 'false' || out.success === false) {
+          throw new Error(out.message || 'Innsending feilet');
+        }
+
+        form.style.display = 'none';
+        if (successEl) successEl.classList.add('show');
+        form.reset();
+      } catch (err) {
+        if (errorEl) {
+          errorEl.textContent = 'Beklager, skjemaet kunne ikke sendes. Ring oss på 94 24 80 00 eller send e-post til post@powr.no.';
+          errorEl.classList.add('show');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = btnLabel;
+        }
+      }
     });
   });
 

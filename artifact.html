@@ -105,6 +105,9 @@ body.tray-open { overflow:hidden; }
 .field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color:var(--safety); box-shadow:0 0 0 3px rgba(226,85,27,.14); }
 .field select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23191c1a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; cursor:pointer; }
 .form-disclaimer { font-size:.74rem; color:var(--ink-soft); text-align:center; margin-top:14px; font-family:var(--font-body); }
+.form-error { display: none; margin-top: 14px; padding: 12px 14px; border: 1px solid var(--danger, #c0392b); color: var(--danger, #c0392b); font-size: .84rem; font-family: var(--font-body); text-align: center; }
+.form-error.show { display: block; }
+.hp-field { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-success { display:none; text-align:center; padding:40px 10px; }
 .form-success.show { display:block; }
 .form-success svg { width:48px; height:48px; color:var(--ok); margin:0 auto 16px; }
@@ -356,22 +359,24 @@ body.tray-open { overflow:hidden; }
           <p class="form-note">Fortell oss om eiendommen din, så svarer vi innen én virkedag.</p>
           <form data-quote-form>
             <div class="form-row">
-              <div class="field"><label>Fullt navn</label><input type="text" placeholder="Ola Nordmann" required></div>
-              <div class="field"><label>Telefon</label><input type="tel" placeholder="+47 000 00 000" required></div>
+              <div class="field"><label>Fullt navn</label><input name="name" type="text" placeholder="Ola Nordmann" required></div>
+              <div class="field"><label>Telefon</label><input name="phone" type="tel" placeholder="+47 000 00 000" required></div>
             </div>
-            <div class="field"><label>E-postadresse</label><input type="email" placeholder="deg@epost.no" required></div>
+            <div class="field"><label>E-postadresse</label><input name="email" type="email" placeholder="deg@epost.no" required></div>
             <div class="form-row">
               <div class="field"><label>Prosjekttype</label>
-                <select required><option value="" disabled selected>Velg en tjeneste</option><option>Vaktmestertjenester</option><option>Renholdstjenester</option><option>Snø og uteområder</option><option>Reparasjoner og handyman</option><option>Eiendomsforvaltning</option><option>Annet</option></select>
+                <select name="project_type" required><option value="" disabled selected>Velg en tjeneste</option><option>Vaktmestertjenester</option><option>Renholdstjenester</option><option>Snø og uteområder</option><option>Reparasjoner og handyman</option><option>Eiendomsforvaltning</option><option>Annet</option></select>
               </div>
               <div class="field"><label>Budsjett</label>
-                <select required><option value="" disabled selected>Velg en ramme</option><option>Under 10 000 kr</option><option>10 000 – 30 000 kr</option><option>30 000 – 75 000 kr</option><option>75 000 kr+</option><option>Usikker</option></select>
+                <select name="budget" required><option value="" disabled selected>Velg en ramme</option><option>Under 10 000 kr</option><option>10 000 – 30 000 kr</option><option>30 000 – 75 000 kr</option><option>75 000 kr+</option><option>Usikker</option></select>
               </div>
             </div>
             <div class="field"><label>Tidsramme</label>
-              <select required><option value="" disabled selected>Når trenger du dette?</option><option>Så snart som mulig</option><option>Innen 2 uker</option><option>Innen 1–3 måneder</option><option>Bare planlegger fremover</option></select>
+              <select name="timeline" required><option value="" disabled selected>Når trenger du dette?</option><option>Så snart som mulig</option><option>Innen 2 uker</option><option>Innen 1–3 måneder</option><option>Bare planlegger fremover</option></select>
             </div>
-            <div class="field"><label>Melding</label><textarea placeholder="Fortell oss litt om eiendommen og behovene deres..."></textarea></div>
+            <div class="field"><label>Melding</label><textarea name="message" placeholder="Fortell oss litt om eiendommen og behovene deres..."></textarea></div>
+            <input type="checkbox" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+            <p class="form-error" role="alert"></p>
             <button type="submit" class="btn btn-primary btn-block">Send inn forespørsel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             <p class="form-disclaimer">Ingen spam. Informasjonen din forblir privat. Se vår <a href="#privacy-page" data-route="privacy" style="text-decoration:underline;">personvernerklæring</a>.</p>
           </form>
@@ -687,16 +692,18 @@ body.tray-open { overflow:hidden; }
           <p style="color:var(--ink-soft); margin-bottom:26px; font-size:.94rem;">Fyll ut skjemaet under, så tar vi kontakt innen én virkedag.</p>
           <form data-quote-form>
             <div class="form-row">
-              <div class="field"><label>Fullt navn</label><input type="text" placeholder="Ola Nordmann" required></div>
-              <div class="field"><label>Telefon</label><input type="tel" placeholder="+47 000 00 000" required></div>
+              <div class="field"><label>Fullt navn</label><input name="name" type="text" placeholder="Ola Nordmann" required></div>
+              <div class="field"><label>Telefon</label><input name="phone" type="tel" placeholder="+47 000 00 000" required></div>
             </div>
-            <div class="field"><label>E-postadresse</label><input type="email" placeholder="deg@epost.no" required></div>
+            <div class="field"><label>E-postadresse</label><input name="email" type="email" placeholder="deg@epost.no" required></div>
             <div class="form-row">
-              <div class="field"><label>Prosjekttype</label><select required><option value="" disabled selected>Velg en tjeneste</option><option>Vaktmestertjenester</option><option>Renholdstjenester</option><option>Snø og uteområder</option><option>Reparasjoner og handyman</option><option>Eiendomsforvaltning</option><option>Annet</option></select></div>
-              <div class="field"><label>Budsjett</label><select required><option value="" disabled selected>Velg en ramme</option><option>Under 10 000 kr</option><option>10 000 – 30 000 kr</option><option>30 000 – 75 000 kr</option><option>75 000 kr+</option><option>Usikker</option></select></div>
+              <div class="field"><label>Prosjekttype</label><select name="project_type" required><option value="" disabled selected>Velg en tjeneste</option><option>Vaktmestertjenester</option><option>Renholdstjenester</option><option>Snø og uteområder</option><option>Reparasjoner og handyman</option><option>Eiendomsforvaltning</option><option>Annet</option></select></div>
+              <div class="field"><label>Budsjett</label><select name="budget" required><option value="" disabled selected>Velg en ramme</option><option>Under 10 000 kr</option><option>10 000 – 30 000 kr</option><option>30 000 – 75 000 kr</option><option>75 000 kr+</option><option>Usikker</option></select></div>
             </div>
-            <div class="field"><label>Tidsramme</label><select required><option value="" disabled selected>Når trenger du dette?</option><option>Så snart som mulig</option><option>Innen 2 uker</option><option>Innen 1–3 måneder</option><option>Bare planlegger fremover</option></select></div>
-            <div class="field"><label>Melding</label><textarea placeholder="Fortell oss litt om eiendommen og behovene deres..."></textarea></div>
+            <div class="field"><label>Tidsramme</label><select name="timeline" required><option value="" disabled selected>Når trenger du dette?</option><option>Så snart som mulig</option><option>Innen 2 uker</option><option>Innen 1–3 måneder</option><option>Bare planlegger fremover</option></select></div>
+            <div class="field"><label>Melding</label><textarea name="message" placeholder="Fortell oss litt om eiendommen og behovene deres..."></textarea></div>
+            <input type="checkbox" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+            <p class="form-error" role="alert"></p>
             <button type="submit" class="btn btn-primary btn-block btn-lg">Send forespørselen min <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             <p class="form-disclaimer">Ved innsending godtar du vår <a href="#privacy-page" data-route="privacy" style="text-decoration:underline;">personvernerklæring</a>.</p>
           </form>
@@ -875,13 +882,50 @@ body.tray-open { overflow:hidden; }
     });
   });
 
+  // Leads go to FormSubmit (https://formsubmit.co) - no account, no API key.
+  // Change the address below and the mail simply goes somewhere else. The very
+  // first submission triggers a one-time confirmation e-mail that must be
+  // clicked before deliveries start.
+  var LEAD_EMAIL = 'dlshad282930@gmail.com';
+
   document.querySelectorAll('form[data-quote-form]').forEach(function(form){
+    var successEl = form.parentElement.querySelector('.form-success');
+    var errorEl = form.querySelector('.form-error');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var btnLabel = submitBtn ? submitBtn.innerHTML : '';
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var successEl = form.parentElement.querySelector('.form-success');
-      form.style.display = 'none';
-      if(successEl) successEl.classList.add('show');
-      form.reset();
+      if(errorEl) errorEl.classList.remove('show');
+
+      var data = new FormData(form);
+      data.append('_subject', 'Ny tilbudsforespørsel fra powr.no');
+      data.append('_template', 'table');
+      data.append('_captcha', 'false');
+
+      if(submitBtn){ submitBtn.disabled = true; submitBtn.innerHTML = 'Sender ...'; }
+
+      fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      })
+        .then(function(res){ return res.json(); })
+        .then(function(out){
+          if(out.success === 'false' || out.success === false) throw new Error(out.message || 'Innsending feilet');
+          form.style.display = 'none';
+          if(successEl) successEl.classList.add('show');
+          form.reset();
+        })
+        .catch(function(){
+          if(errorEl){
+            errorEl.textContent = 'Beklager, skjemaet kunne ikke sendes. Ring oss på 94 24 80 00 eller send e-post til post@powr.no.';
+            errorEl.classList.add('show');
+          }
+        })
+        .then(function(){
+          if(submitBtn){ submitBtn.disabled = false; submitBtn.innerHTML = btnLabel; }
+        });
     });
   });
 
