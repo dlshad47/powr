@@ -140,6 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (successEl) successEl.classList.add('show');
         form.reset();
       } catch (err) {
+        // Surface the real reason (e.g. "This form needs Activation") for debugging;
+        // visitors still see the friendly Norwegian fallback below.
+        console.error('[powr] Skjemainnsending feilet:', err.message);
+
         if (errorEl) {
           errorEl.textContent = 'Beklager, skjemaet kunne ikke sendes. Ring oss på 94 24 80 00 eller send e-post til post@powr.no.';
           errorEl.classList.add('show');

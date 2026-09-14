@@ -917,7 +917,8 @@ body.tray-open { overflow:hidden; }
           if(successEl) successEl.classList.add('show');
           form.reset();
         })
-        .catch(function(){
+        .catch(function(err){
+          console.error('[powr] Skjemainnsending feilet:', err && err.message);
           if(errorEl){
             errorEl.textContent = 'Beklager, skjemaet kunne ikke sendes. Ring oss på 94 24 80 00 eller send e-post til post@powr.no.';
             errorEl.classList.add('show');
